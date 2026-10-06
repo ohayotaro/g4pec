@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "provenance": "Illustrative 1 us BGO gate for scanning, not a calibrated or optimized measurement setting; see docs/bgo-window-scan.md.",
+  "integration_ns": 1000,
+  "pretrigger_ns": 4,
+  "holdoff_ns": 1504
+}

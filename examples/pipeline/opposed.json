@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "provenance": "Configurable ideal-pair demonstration, not calibrated performance",
+  "transport": {
+    "geometry": "../opposed_heads.gdml",
+    "macro": "pair.mac",
+    "run_id": 0,
+    "timeline": {
+      "spacing_ns": 10000,
+      "window_start_ns": 0,
+      "window_end_ns": 81000,
+      "first_offset_ns": 1000,
+      "provenance": "Periodic fixture, not source activity"
+    }
+  },
+  "response": "channels.json",
+  "analysis": {
+    "heads": [
+      {
+        "model": "two_sipm_candidate_features_v1",
+        "config": "A.json",
+        "time_offset_ns": 0
+      },
+      {
+        "model": "two_sipm_candidate_features_v1",
+        "config": "B.json",
+        "time_offset_ns": 0
+      }
+    ],
+    "coincidence": {
+      "schema_version": 1,
+      "provenance": "Illustrative uncalibrated coincidence settings",
+      "half_window_ns": 20,
+      "detector_pairs": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "min_charge_pC": 0,
+      "max_charge_pC": null,
+      "reject_truncated": true,
+      "reject_saturated": true,
+      "max_pairs": 100000
+    }
+  }
+}

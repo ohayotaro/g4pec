@@ -1,0 +1,7 @@
+single_id,channel_path,time_ns,charge_pC,n_saturated,truncated,event_id
+1,/synthetic/B,113,5,0,False,99
+2,/synthetic/B,114,5,0,False,1
+3,/synthetic/B,215,5,0,False,2
+4,/synthetic/B,305,5,0,False,3
+5,/synthetic/B,410,5,1,False,4
+6,/synthetic/B,510,5,0,False,5

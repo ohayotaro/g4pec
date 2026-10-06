@@ -1,0 +1,10 @@
+# Direct illumination through the coupling layer, aimed at copy number 0.
+/random/setSeeds 12345 67890
+/run/initialize
+/gps/particle opticalphoton
+/gps/energy 2.5 eV
+/gps/polarization 1 0 0
+/gps/pos/type Point
+/gps/pos/centre 0 0 5.09 mm
+/gps/direction 0 0 1
+/run/beamOn 100

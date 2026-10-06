@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "provenance": "Illustrative noise parameters for software/model checks, not a calibrated sensor.",
+  "dark_rate_hz": 1000000,
+  "crosstalk_probability": 0.1,
+  "afterpulse_probability": 0.05,
+  "afterpulse_time_ns": 50,
+  "max_candidates": 1000000
+}

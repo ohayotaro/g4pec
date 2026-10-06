@@ -1,0 +1,13 @@
+# Monoenergetic gamma beam; no radioactive source/decay timing in this milestone.
+/control/verbose 1
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+/random/setSeeds 12345 67890
+/run/initialize
+/gps/particle gamma
+/gps/energy 511 keV
+/gps/pos/type Point
+/gps/pos/centre 0 0 -10 mm
+/gps/direction 0 0 1
+/run/beamOn 100

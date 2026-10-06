@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "provenance": "Configurable single-head electron demonstration, not calibrated performance",
+  "transport": {
+    "geometry": "../dual_sipm_head.gdml",
+    "macro": "electron.mac",
+    "run_id": 0,
+    "timeline": {
+      "spacing_ns": 10000,
+      "window_start_ns": 0,
+      "window_end_ns": 81000,
+      "first_offset_ns": 1000,
+      "provenance": "Periodic fixture, not source activity"
+    }
+  },
+  "response": "../dual_sipm_channels.json",
+  "analysis": {
+    "heads": [
+      {
+        "model": "two_sipm_candidate_features_v1",
+        "config": "../head_features.json",
+        "time_offset_ns": 0
+      }
+    ],
+    "coincidence": null
+  }
+}

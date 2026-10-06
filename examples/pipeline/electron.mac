@@ -1,0 +1,8 @@
+/random/setSeeds 12345 67890
+/run/initialize
+/gps/particle e-
+/gps/energy 100 keV
+/gps/pos/type Point
+/gps/pos/centre 0 0 0 mm
+/gps/direction 0 0 1
+/run/beamOn 8

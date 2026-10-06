@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "provenance": "Exploratory two-SiPM feature extraction; no DOI, energy or timing calibration. Existing ADC and BGO gate settings retained.",
+  "detector_id": "B",
+  "half_window_ns": 20,
+  "max_pairs": 100000,
+  "channels": [
+    {
+      "channel_id": "B_left",
+      "time_offset_ns": 0,
+      "readout": "../single_channel_readout.json",
+      "gate": "../bgo_fixed_gate.json"
+    },
+    {
+      "channel_id": "B_right",
+      "time_offset_ns": 0,
+      "readout": "../single_channel_readout.json",
+      "gate": "../bgo_fixed_gate.json"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "provenance": "Single-channel portable response example; detector mapping follows the example GDML.",
+  "channels": [
+    {
+      "channel_id": "sipm0",
+      "detector_id": "detector0",
+      "response": "../output/common_response_response.json",
+      "history": "../output/common_response_history.csv"
+    }
+  ]
+}

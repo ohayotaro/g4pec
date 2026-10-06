@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "provenance": "Synthetic selection fixture; not a calibrated detector or correlated Geant4 source.",
+  "clock_id": "synthetic-fixture-clock",
+  "half_window_ns": 5,
+  "detector_pairs": [["A", "B"]],
+  "min_charge_pC": 1,
+  "max_charge_pC": 10,
+  "reject_truncated": true,
+  "reject_saturated": true,
+  "max_pairs": 10000,
+  "inputs": [
+    {"detector_id": "A", "singles": "a_singles.csv", "manifest": "a_readout.json", "time_offset_ns": 0},
+    {"detector_id": "B", "singles": "b_singles.csv", "manifest": "b_readout.json", "time_offset_ns": -10}
+  ]
+}

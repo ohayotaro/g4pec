@@ -1,0 +1,17 @@
+/random/setSeeds 12345 67890
+/run/initialize
+/gps/particle gamma
+/gps/energy 511 keV
+/gps/pos/type Point
+/gps/pos/centre 0 0 0 mm
+/gps/direction 0 0 1
+/gps/time 0 ns
+/gps/source/add 1
+/gps/particle gamma
+/gps/energy 511 keV
+/gps/pos/type Point
+/gps/pos/centre 0 0 0 mm
+/gps/direction 0 0 -1
+/gps/time 0 ns
+/gps/source/multiplevertex true
+/run/beamOn 8

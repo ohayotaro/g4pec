@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "provenance": "Research example: two SiPMs on one BGO face, unchanged cell values; not optimized",
+  "seed": 42,
+  "channels": [
+    {
+      "channel_id": "A_left",
+      "cells": {
+        "schema_version": 1,
+        "model": "cell_recovery_constant_pde",
+        "provenance": "Illustrative engineering parameters, not a measured or calibrated commercial SiPM model.",
+        "channel_path": "/World_PV[0]/A_sipm_left[0]",
+        "grid": {
+          "cells_x": 116,
+          "cells_y": 116,
+          "pitch_x_mm": 0.05,
+          "pitch_y_mm": 0.05,
+          "origin_x_mm": -2.9,
+          "origin_y_mm": -2.9
+        },
+        "pde": 0.3,
+        "gain_electrons": 1000000,
+        "dead_time_ns": 0.001,
+        "recovery_time_ns": 30.0
+      },
+      "noise": null
+    },
+    {
+      "channel_id": "A_right",
+      "cells": {
+        "schema_version": 1,
+        "model": "cell_recovery_constant_pde",
+        "provenance": "Illustrative engineering parameters, not a measured or calibrated commercial SiPM model.",
+        "channel_path": "/World_PV[0]/A_sipm_right[0]",
+        "grid": {
+          "cells_x": 116,
+          "cells_y": 116,
+          "pitch_x_mm": 0.05,
+          "pitch_y_mm": 0.05,
+          "origin_x_mm": -2.9,
+          "origin_y_mm": -2.9
+        },
+        "pde": 0.3,
+        "gain_electrons": 1000000,
+        "dead_time_ns": 0.001,
+        "recovery_time_ns": 30.0
+      },
+      "noise": null
+    },
+    {
+      "channel_id": "B_left",
+      "cells": {
+        "schema_version": 1,
+        "model": "cell_recovery_constant_pde",
+        "provenance": "Illustrative engineering parameters, not a measured or calibrated commercial SiPM model.",
+        "channel_path": "/World_PV[0]/B_sipm_left[0]",
+        "grid": {
+          "cells_x": 116,
+          "cells_y": 116,
+          "pitch_x_mm": 0.05,
+          "pitch_y_mm": 0.05,
+          "origin_x_mm": -2.9,
+          "origin_y_mm": -2.9
+        },
+        "pde": 0.3,
+        "gain_electrons": 1000000,
+        "dead_time_ns": 0.001,
+        "recovery_time_ns": 30.0
+      },
+      "noise": null
+    },
+    {
+      "channel_id": "B_right",
+      "cells": {
+        "schema_version": 1,
+        "model": "cell_recovery_constant_pde",
+        "provenance": "Illustrative engineering parameters, not a measured or calibrated commercial SiPM model.",
+        "channel_path": "/World_PV[0]/B_sipm_right[0]",
+        "grid": {
+          "cells_x": 116,
+          "cells_y": 116,
+          "pitch_x_mm": 0.05,
+          "pitch_y_mm": 0.05,
+          "origin_x_mm": -2.9,
+          "origin_y_mm": -2.9
+        },
+        "pde": 0.3,
+        "gain_electrons": 1000000,
+        "dead_time_ns": 0.001,
+        "recovery_time_ns": 30.0
+      },
+      "noise": null
+    }
+  ]
+}

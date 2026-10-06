@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "provenance": "Illustrative linear shaper and ADC, not calibrated electronics.",
+  "rise_time_ns": 2,
+  "fall_time_ns": 20,
+  "transimpedance_ohm": 1000,
+  "sample_interval_ns": 1,
+  "baseline_mV": 20,
+  "adc_lsb_mV": 0.05,
+  "adc_bits": 16,
+  "threshold_mV": 2,
+  "release_mV": 1,
+  "pre_samples": 4,
+  "post_samples": 40,
+  "max_samples": 1000000
+}

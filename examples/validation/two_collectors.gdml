@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gdml>
+  <define>
+    <matrix name="airIndex" coldim="2" values="2*eV 1.0 4*eV 1.0" />
+    <matrix name="crystalIndex" coldim="2" values="2*eV 2.15 4*eV 2.15" />
+    <matrix name="couplingIndex" coldim="2" values="2*eV 1.46 4*eV 1.46" />
+    <matrix name="absorption" coldim="2" values="2*eV 1000*mm 4*eV 1000*mm" />
+    <matrix name="emission" coldim="2" values="2*eV 0.01 2.5*eV 1 3*eV 0.01 4*eV 0.001" />
+    <matrix name="yield" coldim="1" values="8000/MeV" />
+    <matrix name="decay" coldim="1" values="300*ns" />
+    <matrix name="resolution" coldim="1" values="1" />
+    <matrix name="collectorEfficiency" coldim="2" values="2*eV 1 4*eV 1" />
+    <matrix name="inactiveEfficiency" coldim="2" values="2*eV 0 4*eV 0" />
+    <matrix name="collectorReflection" coldim="2" values="2*eV 0 4*eV 0" />
+  </define>
+  <materials>
+    <element name="N" formula="N" Z="7">
+      <atom value="14.007" />
+    </element>
+    <element name="O" formula="O" Z="8">
+      <atom value="15.999" />
+    </element>
+    <element name="Bi" formula="Bi" Z="83">
+      <atom value="208.9804" />
+    </element>
+    <element name="Ge" formula="Ge" Z="32">
+      <atom value="72.630" />
+    </element>
+    <element name="Si" formula="Si" Z="14">
+      <atom value="28.085" />
+    </element>
+    <material name="Air">
+      <property name="RINDEX" ref="airIndex" />
+      <D value="0.0012" unit="g/cm3" />
+      <fraction n="0.7" ref="N" />
+      <fraction n="0.3" ref="O" />
+    </material>
+    <material name="BGO">
+      <property name="RINDEX" ref="crystalIndex" />
+      <property name="ABSLENGTH" ref="absorption" />
+      <property name="SCINTILLATIONCOMPONENT1" ref="emission" />
+      <property name="SCINTILLATIONYIELD" ref="yield" />
+      <property name="SCINTILLATIONTIMECONSTANT1" ref="decay" />
+      <property name="RESOLUTIONSCALE" ref="resolution" />
+      <D value="7.13" unit="g/cm3" />
+      <composite n="4" ref="Bi" />
+      <composite n="3" ref="Ge" />
+      <composite n="12" ref="O" />
+    </material>
+    <material name="CouplingGlass">
+      <property name="RINDEX" ref="couplingIndex" />
+      <property name="ABSLENGTH" ref="absorption" />
+      <D value="2.2" unit="g/cm3" />
+      <composite n="1" ref="Si" />
+      <composite n="2" ref="O" />
+    </material>
+    <material name="Silicon">
+      <D value="2.33" unit="g/cm3" />
+      <fraction n="1" ref="Si" />
+    </material>
+  </materials>
+  <solids>
+    <box name="worldBox" x="100" y="100" z="100" lunit="mm" />
+    <box name="crystalBox" x="12" y="12" z="10" lunit="mm" />
+    <box name="couplingBox" x="5.8" y="5.8" z="0.1" lunit="mm" />
+    <box name="sensorBox" x="5.8" y="5.8" z="0.1" lunit="mm" />
+    <opticalsurface name="collector" model="unified" finish="polished" type="dielectric_metal" value="1">
+      <property name="REFLECTIVITY" ref="collectorReflection" />
+      <property name="EFFICIENCY" ref="collectorEfficiency" />
+    </opticalsurface>
+    <opticalsurface name="inactiveSensor" model="unified" finish="polished" type="dielectric_metal" value="1">
+      <property name="REFLECTIVITY" ref="collectorReflection" />
+      <property name="EFFICIENCY" ref="inactiveEfficiency" />
+    </opticalsurface>
+  </solids>
+  <structure>
+    <volume name="Crystal">
+      <materialref ref="BGO" />
+      <solidref ref="crystalBox" />
+      <auxiliary auxtype="Truth" auxvalue="Crystal" />
+      <auxiliary auxtype="DetectorID" auxvalue="detector0" />
+    </volume>
+    <volume name="Coupling">
+      <materialref ref="CouplingGlass" />
+      <solidref ref="couplingBox" />
+    </volume>
+    <volume name="Sensor">
+      <materialref ref="Silicon" />
+      <solidref ref="sensorBox" />
+      <auxiliary auxtype="Readout" auxvalue="SiPM" />
+      <auxiliary auxtype="DetectorID" auxvalue="detector0" />
+    </volume>
+    <volume name="World">
+      <materialref ref="Air" />
+      <solidref ref="worldBox" />
+      <physvol name="crystal" copynumber="0">
+        <volumeref ref="Crystal" />
+        <position name="crystalPos" x="0" y="0" z="0" unit="mm" />
+      </physvol>
+      <physvol name="coupling" copynumber="0">
+        <volumeref ref="Coupling" />
+        <position name="couplingPos" x="0" y="0" z="5.05" unit="mm" />
+      </physvol>
+      <physvol name="sipm" copynumber="0">
+        <volumeref ref="Sensor" />
+        <position name="sipmPos0" x="0" y="0" z="5.15" unit="mm" />
+      </physvol>
+      <physvol name="coupling_test" copynumber="0">
+        <volumeref ref="Coupling" />
+        <position name="coupling_testPos" x="15" y="0" z="5.05" unit="mm" />
+      </physvol>
+      <physvol name="sipm_test" copynumber="0">
+        <volumeref ref="Sensor" />
+        <position name="sipm_testPos" x="15" y="0" z="5.15" unit="mm" />
+      </physvol>
+    </volume>
+    <skinsurface name="sensorInactive" surfaceproperty="inactiveSensor">
+      <volumeref ref="Sensor" />
+    </skinsurface>
+    <bordersurface name="sensorEntrance" surfaceproperty="collector">
+      <physvolref ref="coupling" />
+      <physvolref ref="sipm" />
+    </bordersurface>
+    <bordersurface name="testEntrance" surfaceproperty="collector">
+      <physvolref ref="coupling_test" />
+      <physvolref ref="sipm_test" />
+    </bordersurface>
+  </structure>
+  <setup name="Default" version="1.0">
+    <world ref="World" />
+  </setup>
+</gdml>
